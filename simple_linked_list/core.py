@@ -14,7 +14,7 @@ class Simple_list:
         return self.size
     
     def is_empty(self):
-        return len(self.size) <= 0
+        return self.size == 0
     
     def insert_front(self, key):
         self.head = self.Node(key, next=self.head)
@@ -51,4 +51,5 @@ class Simple_list:
             target = target.next
         print()
         
+    
             
