@@ -1,4 +1,4 @@
-from double_linked_list.imploment import DList
+from chapter1.double_linked_list import DList
 if __name__ == '__main__':
     s = DList()
     s.insert_after(s.head, 'apple')

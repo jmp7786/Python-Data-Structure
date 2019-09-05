@@ -2,6 +2,7 @@
 class Simple_list:
     head = None
     size = 0
+    
     class Node:
         next = None
         key = None

@@ -1,5 +1,4 @@
-from Simple_Linked_List.imploment import Simple_list
-from Simple_Linked_List.imploment2 import SList
+from chapter1.simple_linked_list import Simple_list
 # slice.py에서 SList를 import
 
  
@@ -7,15 +6,12 @@ from Simple_Linked_List.imploment2 import SList
 if __name__ == '__main__':  # 이 파이썬 모듈이 main이면
 
     s = Simple_list()
-    # s = SList()
 
     s.insert_front('orange')
     s.insert_front('apple')
     s.insert_after('cherry',s.head.next)
     s.insert_front('pear')
     s.print_list()
-
- 
 
     print('cherry는 %d번째' % s.search('cherry'))
     print('kiwi는', s.search('kiwi'))
