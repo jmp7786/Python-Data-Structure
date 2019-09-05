@@ -1,56 +1,56 @@
-
-class Simple_list:
-    head = None
-    size = 0
+class Queue:
+    rear = None
+    front = None
     
+    def __del__(self):
+        print('Queue object', id(self))
+        pass
     class Node:
-        next = None
-        key = None
-        
-        def __init__(self, key, next=None):
+        def __init__(self, item, next=None):
+            self.item = item
             self.next = next
-            self.key = key
+            print('created', hex(id(self)))
             
-    def get_size(self):
-        return self.size
+        def __del__(self):
+            print('deleted', hex(id(self)))
+            pass
     
-    def is_empty(self):
-        return self.size == 0
-    
-    def insert_front(self, key):
-        self.head = self.Node(key, next=self.head)
-        self.size += 1
+    def add(self, item):
+        if not self.rear:
+            self.rear = self.Node(item)
+            self.front = self.rear
+        else:
+            self.rear.next = self.Node(item)
+            self.rear = self.rear.next
+
+    def remove(self):
+        if not self.front:
+            return None
         
-    def insert_after(self, key, p):
-        p.next = self.Node(key, next=p.next)
-        self.size += 1
-        
-    def search(self, key):
-        target = self.head
-        
-        for i in range(self.size):
-            if target.key == key:
-                return i
+        elif not self.front.next:
             
+            result = self.front.item
+            
+            self.rear = None
+            self.front = None
+            
+            return result
+        
+        else:
+            result = self.front.item
+            self.front = self.front.next
+            
+            return result
+    
+    def get_attributes(self):
+        target = self.front
+        results = list()
+        
+        while target:
+            results.append(target.item)
             target = target.next
         
-        return None
+        return results
     
-    def delete_front(self):
-        self.head = self.head.next
-        self.size -= 1
-        
-    def delete_after(self, p):
-        p.next = p.next.next
-        self.size -= 1
-        
-    def print_list(self):
-        target = self.head
-        
-        for i in range(self.size):
-            print(target.key, end=' ')
-            target = target.next
-        print()
-        
     
-            
+
