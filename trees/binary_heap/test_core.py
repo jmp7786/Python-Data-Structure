@@ -2,19 +2,18 @@ from trees.binary_heap.core import BinaryHeap
 
 def test_core():
     a = [None] * 1
+    a.append([50, 'lime'])
     a.append([90, 'watermelon'])
     a.append([80, 'pear'])
     a.append([70, 'melon'])
-    a.append([50, 'lime'])
-    a.append([60, 'mango'])
     a.append([20, 'cherry'])
-    a.append([30, 'grape'])
+    a.append([60, 'mango'])
     a.append([35, 'orange'])
-    a.append([10, 'apricot'])
+    a.append([30, 'grape'])
     a.append([15, 'banana'])
+    a.append([10, 'apricot'])
     a.append([45, 'lemon'])
     a.append([40, 'kiwi'])
-    a.append([55, 'kiwi2'])
     
     
     b = BinaryHeap(a)

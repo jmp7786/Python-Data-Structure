@@ -26,6 +26,8 @@ def test_core():
     assert t.inorder(t.root) == [800, 400, 200, 500, 100, 600, 300, 700]
     assert t.postorder(t.root) == [800, 400, 500, 200, 600, 700, 300, 100]
     assert t.levelorder(t.root) == [100, 200, 300, 400, 500, 600, 700, 800]
+    
+    
 
 
 test_core()
