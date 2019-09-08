@@ -1,26 +1,30 @@
-class Queue:
-    rear = None
-    front = None
+class Node:
+    def __init__(self, item, next=None):
+        self.item = item
+        self.next = next
+        print('created', hex(id(self)))
     
+    def __del__(self):
+        print('deleted', hex(id(self)))
+        pass
+    
+class Queue:
+    def __init__(self):
+        self.rear = None
+        self.front = None
+        
     def __del__(self):
         print('Queue object', id(self))
         pass
-    class Node:
-        def __init__(self, item, next=None):
-            self.item = item
-            self.next = next
-            print('created', hex(id(self)))
-            
-        def __del__(self):
-            print('deleted', hex(id(self)))
-            pass
+    
+    
     
     def add(self, item):
         if not self.rear:
-            self.rear = self.Node(item)
+            self.rear = Node(item)
             self.front = self.rear
         else:
-            self.rear.next = self.Node(item)
+            self.rear.next = Node(item)
             self.rear = self.rear.next
 
     def remove(self):

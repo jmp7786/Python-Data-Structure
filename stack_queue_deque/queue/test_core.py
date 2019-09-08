@@ -1,4 +1,4 @@
-from stack_queue_deque.queue.core import Queue
+from stack_queue_deque.queue.core2 import Queue
 
  
 
@@ -7,6 +7,7 @@ def test_core():
 
     q.add('apple')
     assert q.get_attributes() == ['apple']
+    
     q.add('pear')
     assert q.get_attributes() == ['apple', 'pear']
     
@@ -34,3 +35,5 @@ def test_core():
 
     # assert q.get_attributes() == 1
 
+if __name__ == "__main__":
+    test_core()

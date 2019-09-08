@@ -4,13 +4,13 @@ class BinaryHeap:
         self.size = len(a) - 1
     
     def create_heap(self):
-        for i in range(self.size // 2, 0, -1):
+        for i in range(self.size, 0, -1):
             self.downheap(i)
     
     def downheap(self, i):
-        while i * 2<= self.size:
+        while i * 2 <= self.size:
             k = i * 2
-            if k < self.size and self.list[k][0] > self.list[k + 1][0]:
+            if k < self.size and self.list[k][0] > self.list[k+1][0]:
                 k += 1
             if self.list[i][0] < self.list[k][0]:
                 break
@@ -22,13 +22,8 @@ class BinaryHeap:
     def upheap(self, j):
         while j > 1 and self.list[j//2][0] > self.list[j][0]:
             self.list[j], self.list[j//2] = self.list[j//2], self.list[j]
-            j = j // 2
-    
-    def insert(self, item):
-        self.size += 1
-        self.list.append(item)
-        self.upheap(self.size)
-    
+            j = j//2
+            
     def delete_min(self):
         if self.size == 0:
             return None
@@ -38,11 +33,12 @@ class BinaryHeap:
         del self.list[-1]
         self.size -= 1
         self.downheap(1)
-        
-        return minimum
+    
+    def insert(self, n):
+        self.size += 1
+        self.list.append(n)
+        self.upheap(self.size)
     
     def get_attributes(self):
-        results = list()
-        for i in range(1, self.size + 1):
-            results.append(self.list[i])
-        return results
+        return self.list[1:]
+        

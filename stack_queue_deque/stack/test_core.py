@@ -1,5 +1,5 @@
 
-from stack_queue_deque.stack.core import Stack
+from stack_queue_deque.stack.core2 import Stack
 
 def test_core():
     s = Stack()
