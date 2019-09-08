@@ -61,16 +61,16 @@ class BinarySearchTree:
         return n
     
     def delete(self, k):
-        self.root = self.del_node(self.root, k)
+        self.root = self._delete(self.root, k)
     
-    def del_node(self, n, k):
+    def _delete(self, n, k):
         if n == None:
             return None
         
         if n.key > k:
-            n.left = self.del_node(n.left, k)
+            n.left = self._delete(n.left, k)
         elif n.key < k:
-            n.right = self.del_node(n.right, k)
+            n.right = self._delete(n.right, k)
         else:
             if n.right == None:
                 return n.left
@@ -84,16 +84,16 @@ class BinarySearchTree:
         return n
 
     def inorder(self, n):
-        result = list()
+        results = list()
     
         if n != None:
             if n.left:
-                result += self.inorder(n.left)
+                results += self.inorder(n.left)
         
-            result.append(n.key)
+            results.append(n.key)
         
             if n.right:
-                result += self.inorder(n.right)
+                results += self.inorder(n.right)
     
-        return result
+        return results
 

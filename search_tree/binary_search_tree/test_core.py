@@ -1,4 +1,4 @@
-from search_tree.binary_search_tree.core import BinarySearchTree
+from search_tree.binary_search_tree.core2 import BinarySearchTree
 
 def test_core():
     t = BinarySearchTree()
