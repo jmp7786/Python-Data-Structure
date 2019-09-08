@@ -1,56 +1,24 @@
+"""
+# deque은 Double Ended Queue의 구현체이며, 양쪽에서 데이터를 넣거나 꺼낼 수 있다.
+"""
+from collections import deque
 
-class Simple_list:
-    head = None
-    size = 0
+# 큐를 구현하기위해서는 한 방향에서 넣고, 반대 방향에서 꺼내야한다.
+class Deque(deque):
+    # push를 override 한다.
+    def enqueue(self, x):
+       super().append(x) # 오른쪽에서 데이터를 enqueue 한다.
     
-    class Node:
-        next = None
-        key = None
-        
-        def __init__(self, key, next=None):
-            self.next = next
-            self.key = key
-            
-    def get_size(self):
-        return self.size
+    def dequeue(self):
+       super().popleft()  # 왼쪽에서 데이터를 dequeue 한다.
     
-    def is_empty(self):
-        return self.size == 0
-    
-    def insert_front(self, key):
-        self.head = self.Node(key, next=self.head)
-        self.size += 1
+    def display(self):
+        result = list()
+        for node in self.__iter__():
+            result.append(node)
         
-    def insert_after(self, key, p):
-        p.next = self.Node(key, next=p.next)
-        self.size += 1
-        
-    def search(self, key):
-        target = self.head
-        
-        for i in range(self.size):
-            if target.key == key:
-                return i
-            
-            target = target.next
-        
-        return None
-    
-    def delete_front(self):
-        self.head = self.head.next
-        self.size -= 1
-        
-    def delete_after(self, p):
-        p.next = p.next.next
-        self.size -= 1
-        
-    def print_list(self):
-        target = self.head
-        
-        for i in range(self.size):
-            print(target.key, end=' ')
-            target = target.next
-        print()
-        
-    
-            
+        return result
+         
+         
+         
+
