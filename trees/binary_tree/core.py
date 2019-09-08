@@ -8,7 +8,7 @@ class Node:
 class BinaryTree:
     root = None
     
-    def preoder(self, n):
+    def preorder(self, n):
         result = list()
         
         if n != None:
