@@ -1,4 +1,4 @@
-from hash.closed_hash.core2 import Chaining
+from hash.closed_hash.core import Chaining
 
 def test_core():
     t = Chaining(13)

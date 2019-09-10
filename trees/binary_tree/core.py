@@ -15,10 +15,10 @@ class BinaryTree:
             result.append(n.item)
             
             if n.left:
-                result += self.preoder(n.left)
+                result += self.preorder(n.left)
             
             if n.right:
-                result += self.preoder(n.right)
+                result += self.preorder(n.right)
         
         return result
     

@@ -1,4 +1,4 @@
-from trees.binary_tree.core2 import BinaryTree, Node
+from trees.binary_tree.core import BinaryTree, Node
 
 def test_core():
     t = BinaryTree()

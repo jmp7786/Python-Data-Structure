@@ -1,4 +1,4 @@
-from sort.heap_sort.core3 import heap_sort, create_heap
+from sort.heap_sort.core import heap_sort, create_heap
 
 
 def test_core():

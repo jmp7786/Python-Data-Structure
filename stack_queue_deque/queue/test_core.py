@@ -1,4 +1,4 @@
-from stack_queue_deque.queue.core2 import Queue
+from stack_queue_deque.queue.core import Queue
 
  
 

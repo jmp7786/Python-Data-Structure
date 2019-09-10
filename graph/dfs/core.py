@@ -1,26 +1,28 @@
 class DFS:
-    def __init__(self, a):
-        self.N = len(a)
-        self.a = a
-        self.visited = [False] * self.N
+    def __init__(self, tree):
+        self.size = len(tree)
+        self.tree = tree
+        self.visited = [False] * self.size
     
-    def dfs(self, v):
+    def dfs(self, i):
         results = list()
+        self.visited[i] = True
         
-        self.visited[v] = True
-        results.append(v)
-        for w in self.a[v]:
-            if not self.visited[w]:
-                results += self.dfs(w)
+        results.append(i)
         
+        for j in self.tree[i]:
+            if not self.visited[j]:
+                results += self.dfs(j)
+                
         return results
     
     def get_attributes(self):
         results = list()
         
-        for i in range(self.N):
+        for i in range(self.size):
             if not self.visited[i]:
                 results += self.dfs(i)
-        
+                
         return results
 
+    
