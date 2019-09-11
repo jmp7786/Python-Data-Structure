@@ -24,5 +24,3 @@ class DFS:
                 results += self.dfs(i)
                 
         return results
-
-    

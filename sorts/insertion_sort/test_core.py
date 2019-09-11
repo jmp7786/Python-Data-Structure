@@ -1,4 +1,4 @@
-from sort.insertion_sort.core import insertion_sort
+from sorts.insertion_sort.core import insertion_sort
 
 
 def test_core():

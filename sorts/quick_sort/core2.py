@@ -19,4 +19,5 @@ def partition(a, pivot, high):
         j -= 1
     
     a[pivot], a[j] = a[j], a[pivot]
+    
     return j
