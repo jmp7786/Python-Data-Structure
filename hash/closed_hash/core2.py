@@ -1,48 +1,52 @@
 class Node:
-    def __init__(self, key, data, next):
+    def __init__(self, key, item, next):
         self.key = key
-        self.data = data
+        self.item = item
         self.next = next
-
-
+        
+    
 class Chaining:
     def __init__(self, size):
-        self.M = size
-        self.a = [None] * size
-    
+        self.size = size
+        self.array = [None] * size
+        
     def hash(self, key):
-        return key % self.M
-    
-    def put(self, key, data):
+        return key % self.size
+
+    def put(self, key, item):
         i = self.hash(key)
-        p = self.a[i]
+        p = self.array[i]
         
         while p != None:
             if key == p.key:
-                p.data = data
+                p.data = item
                 return
             p = p.next
         
-        self.a[i] = Node(key, data, self.a[i])
+        self.array[i] = Node(key, item, self.array[i])
     
     def get(self, key):
         i = self.hash(key)
-        p = self.a[i]
+        p = self.array[i]
         
         while p != None:
             if key == p.key:
-                return p.data
+                return p.item
             p = p.next
         
         return None
-    
+
     def get_attributes(self):
         results = list()
-        for i in range(self.M):
+        for i in range(self.size):
             results.append(list())
-            p = self.a[i]
+            p = self.array[i]
             while p != None:
-                results[i].append([p.key, p.data])
+                results[i].append([p.key, p.item])
                 p = p.next
-        
+                
         return results
+    
+    
+        
+        

@@ -3,73 +3,70 @@ class Node:
         self.item = item
         self.left = left
         self.right = right
-
-
+        
 class BinaryTree:
-    root = None
-    
+    def __init__(self):
+        self.root = None
+        
     def preorder(self, n):
-        result = list()
+        results = list()
         
         if n != None:
-            result.append(n.item)
+            results.append(n.item)
             
             if n.left:
-                result += self.preorder(n.left)
-            
+                results.extend(self.preorder(n.left))
             if n.right:
-                result += self.preorder(n.right)
+                results.extend(self.preorder(n.right))
         
-        return result
+        return results
     
     def inorder(self, n):
-        result = list()
+        results = list()
         
         if n != None:
             if n.left:
-                result += self.inorder(n.left)
+                results.extend(self.inorder(n.left))
             
-            result.append(n.item)
+            results.append(n.item)
             
             if n.right:
-                result += self.inorder(n.right)
-        
-        return result
-    
+                results.extend(self.inorder(n.right))
+            
+        return results
+
     def postorder(self, n):
-        result = list()
+        results = list()
         
         if n != None:
             if n.left:
-                result += self.postorder(n.left)
-            
+                results.extend(self.postorder(n.left))
             if n.right:
-                result += self.postorder(n.right)
+                results.extend(self.postorder(n.right))
             
-            result.append(n.item)
+            results.append(n.item)
         
-        return result
-    
-    def levelorder(self, root):
+        return results
+
+    def levelorder(self, n):
+        results = list()
         q = list()
-        result = list()
         
-        q.append(root)
-        
-        while len(q) != 0:
-            t = q.pop(0)
-            
-            result.append(t.item)
-            
-            if t.left:
-                q.append(t.left)
-            if t.right:
-                q.append(t.right)
-        
-        return result
+        q.append(n)
     
-    def height(self, root):
-        if root == None:
+        while len(q) != 0:
+            v = q.pop(0)
+            results.append(v.item)
+            
+            if v.left:
+                q.append(v.left)
+            if v.right:
+                q.append(v.right)
+        
+        return results
+
+    def height(self, n):
+        if n == None:
             return 0
         
-        return max(self.height(root.left), self.height(root.right)) + 1
+        return max(self.height(n.left), self.height(n.right)) + 1

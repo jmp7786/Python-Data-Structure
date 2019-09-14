@@ -1,44 +1,49 @@
 class BinaryHeap:
     def __init__(self, a):
-        self.list = a
+        self.a = a
         self.size = len(a) - 1
     
     def create_heap(self):
-        for i in range(self.size, 0, -1):
+        for i in range(self.size // 2, 0, -1):
             self.downheap(i)
     
     def downheap(self, i):
         while i * 2 <= self.size:
             k = i * 2
-            if k < self.size and self.list[k][0] > self.list[k+1][0]:
+            if k < self.size and self.a[k][0] > self.a[k + 1][0]:
                 k += 1
-            if self.list[i][0] < self.list[k][0]:
+            if self.a[i] < self.a[k]:
                 break
             
-            self.list[i], self.list[k] = self.list[k], self.list[i]
+            self.a[i], self.a[k] = self.a[k], self.a[i]
             
             i = k
     
-    def upheap(self, j):
-        while j > 1 and self.list[j//2][0] > self.list[j][0]:
-            self.list[j], self.list[j//2] = self.list[j//2], self.list[j]
-            j = j//2
-            
-    def delete_min(self):
-        if self.size == 0:
-            return None
-        
-        minimum = self.list[1]
-        self.list[1], self.list[-1] = self.list[-1], self.list[1]
-        del self.list[-1]
-        self.size -= 1
-        self.downheap(1)
+    def upheap(self, i):
+        while i > 1 and self.a[i // 2][0] > self.a[i][0]:
+            self.a[i], self.a[i // 2] = self.a[i // 2], self.a[i]
+            i = i // 2
     
     def insert(self, n):
         self.size += 1
-        self.list.append(n)
+        self.a.append(n)
         self.upheap(self.size)
     
-    def get_attributes(self):
-        return self.list[1:]
+    def delete_min(self):
+        if self.size == 0:
+            return
         
+        _min = self.a[1]
+        self.a[1], self.a[-1] = self.a[-1], self.a[1]
+        del self.a[-1]
+        self.size -= 1
+        self.downheap(1)
+        
+        return _min
+    
+    def get_attributes(self):
+        return self.a[1:]
+
+
+
+
