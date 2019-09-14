@@ -1,6 +1,5 @@
-def bubble_sort(li):
-    length = len(li) - 1
-    for i in range(length):
-        for j in range(length - i):
-            if li[j] > li[j + 1]:
-                li[j], li[j + 1] = li[j + 1], li[j]
+def bubble_sort(a):
+    for i in range(len(a)-1):
+        for j in range(len(a)-i-1):
+            if a[j] > a[j+1]:
+                a[j], a[j+1] = a[j+1], a[j]

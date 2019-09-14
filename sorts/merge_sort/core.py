@@ -26,4 +26,3 @@ def merge_sort(a, b, low, high):
     merge_sort(a, b, low, mid)
     merge_sort(a, b, mid+1, high)
     merge(a, b, low, mid, high)
-    

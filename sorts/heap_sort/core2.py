@@ -12,7 +12,7 @@ def downheap(a, i, size):
 
 def create_heap(a):
     hsize = len(a) - 1
-    for i in reversed(range(1, hsize // +1)):
+    for i in reversed(range(1, hsize //2 +1)):
         downheap(a, i, hsize)
 
 

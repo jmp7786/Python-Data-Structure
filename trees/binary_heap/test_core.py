@@ -1,4 +1,4 @@
-from trees.binary_heap.core2 import BinaryHeap
+from trees.binary_heap.core import BinaryHeap
 
 def test_core():
     a = [None] * 1

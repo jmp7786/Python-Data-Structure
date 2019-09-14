@@ -7,7 +7,6 @@ def qsort(a, low, high):
 def partition(a, pivot, high):
     i = pivot + 1
     j = high
-    
     while True:
         while i < high and a[i] < a[pivot]:
             i += 1
@@ -15,7 +14,7 @@ def partition(a, pivot, high):
             j -= 1
         if j <= i:
             break
-        
+            
         a[i], a[j] = a[j], a[i]
         i += 1
         j -= 1
@@ -23,3 +22,4 @@ def partition(a, pivot, high):
     a[pivot], a[j] = a[j], a[pivot]
     
     return j
+    

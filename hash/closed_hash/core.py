@@ -46,4 +46,3 @@ class Chaining:
                 p = p.next
         
         return results
-            
