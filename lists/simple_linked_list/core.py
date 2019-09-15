@@ -55,4 +55,3 @@ class SimpleList:
         return attributes
         
     
-            
