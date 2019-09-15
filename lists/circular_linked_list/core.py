@@ -1,46 +1,46 @@
+class Node:
+    def __init__(self, k, next=None):
+        self.key = k
+        self.next = next
+    
+
 class CircularLinkedList:
-    last = None
-    size = 0
+    def __init__(self):
+        self.last = None
+        self.size = 0
     
-    class Node:
-        def __init__(self, key, next=None):
-            self.key = key
-            self.next = next
-    
-    def is_empty(self):
-        return self.size == 0
+    def insert(self, k):
+        if self.size == 0:
+            self.last = Node(k)
+            self.last.next = self.last
+        else:
+            self.last.next = Node(k, self.last.next)
+            
+        self.size += 1
     
     def first(self):
         return self.last.next.key
     
-    def insert(self, key):
-        if self.is_empty():
-            self.last = self.Node(key)
-            self.last.next = self.last
-        else:
-            self.last.next = self.Node(key, self.last.next)
-        
-        self.size += 1
-    
     def delete(self):
-        if self.is_empty():
+        if self.size == 0:
             return None
+        
+        if self.size == 1:
+            self.last.next = None
+            self.last = None
+        
         else:
-            if self.size == 1:
-                self.last.next = None
-                self.last = None
-            else:
-                self.last.next = self.last.next.next
+            self.last.next = self.last.next.next
         
         self.size -= 1
     
-    def get_list(self):
-        lst = list()
+    def get_attributes(self):
+        results = list()
+        t = self.last
         
-        if not self.is_empty():
-            target = self.last
-            for i in range(self.size):
-                lst.append(target.next.key)
-                target = target.next
+        for i in range(self.size):
+            results.append(t.next.key)
+            t = t.next
         
-        return lst
+        return results
+        

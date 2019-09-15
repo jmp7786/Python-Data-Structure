@@ -2,8 +2,8 @@ class Node:
     def __init__(self, key, next=None):
         self.key = key
         self.next = next
-    
-    
+
+
 class SimpleList:
     def __init__(self):
         self.head = None
@@ -12,7 +12,7 @@ class SimpleList:
     def insert_front(self, k):
         self.head = Node(k, self.head)
         self.size += 1
-        
+    
     def insert_after(self, k, n):
         n.next = Node(k, n.next)
         self.size += 1
